@@ -10,7 +10,12 @@ import Signup from './components/Signup';
 import UpdateForm from './components/UpdateForm';
 
 function App() {
-	return <div></div>;
+	return (
+		<div>
+			<h1>Hello World</h1>
+			<Login />
+		</div>
+	);
 }
 
 export default App;
