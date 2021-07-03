@@ -20,13 +20,13 @@ HealthyDevelopers is an application that allows developers to keep track of dail
 ## User Stories
 
 As a user, I would like to be able to create my own account.
-As a user, I want to keep track of all the activities I have done as well as how much water I have drank and exercises I have done.
+As a user, I want to keep track of the activities for the day.
 As a user, I would like to update my activities for older days.
 
 ### MVP Goals
 
 - Anyone can make an account.
-- Having an account allows a user to perform CRUD functions.
+- Having an account allows a user to perform CRUD functions on their account.
 - A user can view their own posts.
 
 ### Stretch Goals

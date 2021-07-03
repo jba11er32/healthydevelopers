@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { Route, Link } from 'react-router-dom';
-import Form from './components/Form';
+import HabitForm from './components/HabitForm';
 import About from './components/About';
 import Home from './components/Home';
 import Login from './components/Login';
