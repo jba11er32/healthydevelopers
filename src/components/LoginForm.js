@@ -1,12 +1,27 @@
 import React, { useState } from 'react';
 import { API_URL } from '../config';
+import IconButton from '@material-ui/core/IconButton';
+import Visibility from '@material-ui/icons/Visibility';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import Input from '@material-ui/core/Input';
 
 const LoginForm = () => {
 
 	const [state, setState] = useState({
 		email: '',
 		password: '',
+		showPassword: false,
+		showConfirmPassword: false,
 	});
+
+	function handleClickShowPassword () {
+		setState({ ...state, showPassword: !state.showPassword, showConfirmPassword: !state.showConfirmPassword })
+	}
+
+	function handleMouseDownPassword (event) {
+		event.preventDefault();
+	};
 
 	function handleChange(event) {
 		const value = event.target.value;
@@ -49,23 +64,35 @@ const LoginForm = () => {
 			<form onSubmit={handleSubmit}>
 				<label htmlFor='email'>
 					Email
-					<input
+					<Input
 						type='text'
 						name='email'
 						value={state.email}
 						onChange={handleChange}
+						
 						placeholder='Email'
 					/>
 				</label>
 
 				<label htmlFor='password'>
 					Password
-					<input
-						type='password'
+					<Input
+						type={state.showPassword ? 'text' : 'password'}
 						name='password'
 						value={state.password}
 						onChange={handleChange}
+						onClick={handleClickShowPassword}
 						placeholder='Password'
+						endAdornment={
+						<InputAdornment position="end">
+							<IconButton
+								onClick={handleClickShowPassword}
+								onMouseDown={handleMouseDownPassword}
+							>
+								{state.showPassword ? <Visibility /> : <VisibilityOff />}
+								</IconButton>
+							</InputAdornment>
+						}
 					/>
 				</label>
 

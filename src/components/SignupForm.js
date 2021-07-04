@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { API_URL } from '../config';
+import IconButton from '@material-ui/core/IconButton';
+import Visibility from '@material-ui/icons/Visibility';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import Input from '@material-ui/core/Input';
 
 const SignupForm = () => {
 	const passwordMinLength = 8
@@ -10,8 +15,18 @@ const SignupForm = () => {
 		lastName: '',
 		email: '',
 		password: '',
-		confirmPassword: ''
+		confirmPassword: '',
+		showPassword: false,
+		showConfirmPassword: false,
 	})
+
+	function handleClickShowPassword () {
+		setState({ ...state, showPassword: !state.showPassword, showConfirmPassword: !state.showConfirmPassword })
+	}
+
+	function handleMouseDownPassword (event) {
+		event.preventDefault();
+	};
 
 	function handleSubmit(event) {
 		event.preventDefault();
@@ -50,7 +65,7 @@ const SignupForm = () => {
 	return <div>
 		<form onSubmit={handleSubmit}>
 			<label htmlFor='firstName'>First Name</label>
-			<input
+			<Input
 				type='text'
 				name='firstName'
 				value={state.firstName}
@@ -58,7 +73,7 @@ const SignupForm = () => {
 			/>
 
 			<label htmlFor='lastName'>Last Name</label>
-			<input
+			<Input
 				type='text'
 				name='lastName'
 				value={state.lastName}
@@ -66,7 +81,7 @@ const SignupForm = () => {
 			/>
 
 			<label htmlFor='email'>Email</label>
-			<input
+			<Input
 				type='text'
 				name='email'
 				value={state.email}
@@ -75,21 +90,43 @@ const SignupForm = () => {
 			/>
 
 			<label htmlFor='password'>Password</label>
-			<input
-				type='text'
+			<Input
+				type={state.showPassword ? 'text' : 'password'}
 				name='password'
 				value={state.password}
 				onChange={handleChange}
+				onClick={handleClickShowPassword}
 				minLength={passwordMinLength}
 				placeholder='Must be at least 8 characters'
+				endAdornment={
+					<InputAdornment position="end">
+						<IconButton
+							onClick={handleClickShowPassword}
+							onMouseDown={handleMouseDownPassword}
+						>
+							{state.showPassword ? <Visibility /> : <VisibilityOff />}
+						</IconButton>
+					</InputAdornment>
+				}
 			/>
 
 			<label htmlFor='confirmPassword'>Confirm Password</label>
-			<input
+			<Input
 				type='text'
 				name='confirmPassword'
 				value={state.confirmPassword}
 				onChange={handleChange}
+				onClick={handleClickShowPassword}
+				endAdornment={
+					<InputAdornment position="end">
+						<IconButton
+							onClick={handleClickShowPassword}
+							onMouseDown={handleMouseDownPassword}
+						>
+							{state.showPassword ? <Visibility /> : <VisibilityOff />}
+						</IconButton>
+					</InputAdornment>
+				}
 			/>
 
 			<div>

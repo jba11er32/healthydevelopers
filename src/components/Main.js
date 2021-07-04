@@ -2,7 +2,8 @@ import React from 'react';
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
 import { Link, Route, Switch } from 'react-router-dom';
-import logo from '../logo.png';
+
+
 
 const Main = () => {
     return (
