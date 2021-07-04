@@ -23,7 +23,7 @@ const SignupForm = () => {
 			password: ''
 		}
 
-		const url = `${API_URL}/users/signup`;
+		const url = `${API_URL}/signup`;
 		
 		if(state.password !== state.confirmPassword) {
 			alert("Passwords do not match");
