@@ -77,7 +77,7 @@ const LoginForm = () => {
 				<div className='divide-line'></div>
 
 				<div>
-					<Link to='/users/signup'>
+					<Link to='/signup'>
 						<button type='button'>Sign Up</button>
 					</Link>
 				</div>
