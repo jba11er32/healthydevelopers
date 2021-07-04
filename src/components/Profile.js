@@ -10,19 +10,24 @@ import About from './About';
 const Profile = () => {
     return (
         <div>
-            <Dashboard />
-            <Route exact path='/myhome'>
-                <Home />
-            </Route >
-            <Route path='/today'>
-                <Today />
-            </Route>
-            <Route path='/month'>
-                <Month />
-            </Route>
-            <Route path='/about'>
-                <About />
-            </Route>
+            <div>
+                <h1>DevHealthyHabits</h1>
+            </div>
+            <div>
+                <Dashboard />
+                <Route exact path='/myhome'>
+                    <Home />
+                </Route >
+                <Route path='/today'>
+                    <Today />
+                </Route>
+                <Route path='/month'>
+                    <Month />
+                </Route>
+                <Route path='/about'>
+                    <About />
+                </Route>
+            </div>
         </div>
     );
 };
