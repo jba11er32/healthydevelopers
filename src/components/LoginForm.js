@@ -81,7 +81,7 @@ const LoginForm = () => {
 						<span>
 							Sign Up
 						</span>
-					</>
+					</a>
 				</div>
 			</form>
 		</div>
