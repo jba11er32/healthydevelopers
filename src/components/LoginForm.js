@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { API_URL } from '../config';
 
 const LoginForm = () => {
@@ -77,9 +76,12 @@ const LoginForm = () => {
 				<div className='divide-line'></div>
 
 				<div>
-					<Link to='/signup'>
-						<button type='button'>Sign Up</button>
-					</Link>
+					<p>Don't have an account?</p>
+					<a href='/signup'>
+						<span>
+							Sign Up
+						</span>
+					</>
 				</div>
 			</form>
 		</div>
