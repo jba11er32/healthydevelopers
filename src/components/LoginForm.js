@@ -2,13 +2,21 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { API_URL } from '../config';
 
-const Login = () => {
+const LoginForm = () => {
 
 	const [state, setState] = useState({
 		email: '',
 		password: '',
 	});
 
+	function handleChange(event) {
+		const value = event.target.value;
+		setState({
+			...state,
+			[event.target.name]: value,
+		});
+	}
+	
 	function handleSubmit(event) {
 		event.preventDefault();
 		const userData = {
@@ -36,18 +44,11 @@ const Login = () => {
 			.catch((data) => {});
 	}
 
-	function handleChange(event) {
-		const value = event.target.value;
-		setState({
-			...state,
-			[event.target.name]: value,
-		});
-	}
 
 	return (
 		<div>
 			<form onSubmit={handleSubmit}>
-				<label>
+				<label htmlFor='email'>
 					Email
 					<input
 						type='text'
@@ -58,7 +59,7 @@ const Login = () => {
 					/>
 				</label>
 
-				<label>
+				<label htmlFor='password'>
 					Password
 					<input
 						type='password'
@@ -76,7 +77,7 @@ const Login = () => {
 				<div className='divide-line'></div>
 
 				<div>
-					<Link to='/signup'>
+					<Link to='/users/signup'>
 						<button type='button'>Sign Up</button>
 					</Link>
 				</div>
@@ -85,4 +86,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default LoginForm;

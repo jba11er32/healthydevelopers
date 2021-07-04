@@ -1,21 +1,34 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import { Route, Link } from 'react-router-dom';
-import HabitForm from './components/HabitForm';
-import About from './components/About';
-import Home from './components/Home';
-import Login from './components/Login';
-import LoginButtons from './components/LoginButtons';
-import Signup from './components/Signup';
-import UpdateForm from './components/UpdateForm';
+import Main from './components/Main';
+import Profile from './components/Profile';
 
 function App() {
-	return (
-		<div>
-			<h1>Hello World</h1>
-			<Login />
-		</div>
-	);
+
+	const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+	useEffect(() => {
+		if (window.localStorage.getItem('token')) {
+			setIsLoggedIn(true)
+		} else {
+			setIsLoggedIn(false)
+		}
+	}, [])
+
+	if (isLoggedIn === false) {
+		return (
+			<div>
+				<Main />
+			</div>
+		)
+	} else {
+		return (
+			<div>
+				<Profile />
+			</div>
+		)
+	}
+
 }
 
 export default App;
