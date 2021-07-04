@@ -13,8 +13,6 @@ const SignupForm = () => {
 		confirmPassword: ''
 	})
 
-	const [error, setError] = useState('')
-
 	function handleSubmit(event) {
 		event.preventDefault();
 		
@@ -27,10 +25,8 @@ const SignupForm = () => {
 
 		const url = `${API_URL}/users/signup`;
 		
-		
-
 		if(state.password !== state.confirmPassword) {
-			setError("Passwords do not match");
+			alert("Passwords do not match");
 		} else {		
 			fetch(url, {
 				method: 'POST',

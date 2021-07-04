@@ -24,7 +24,7 @@ const LoginForm = () => {
 			"password": state.password
 		};
 
-		const url = `${API_URL}/users/login`;
+		const url = `${API_URL}/`;
 
 		fetch(url, {
 			method: 'POST',

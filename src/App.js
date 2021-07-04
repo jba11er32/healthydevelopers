@@ -15,6 +15,9 @@ function App() {
 		}
 	}, [])
 
+
+	// If the user is logged in, we display the users Profile which shows the dashboard containing Home, Today, Month, and About
+
 	if (isLoggedIn === false) {
 		return (
 			<div>
@@ -28,6 +31,12 @@ function App() {
 			</div>
 		)
 	}
+
+	// return (
+	// 	<div>
+	// 		<Main />
+	// 	</div>
+	// )
 
 }
 

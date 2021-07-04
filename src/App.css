@@ -2,9 +2,17 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main {
+  display: flex;
+}
+
+.className {
+  max-height: 100vh;
+}
+
+.logo {
+  background-color: lightpink;
+  background-size: auto;
 }
 
 @media (prefers-reduced-motion: no-preference) {
