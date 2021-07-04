@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import { API_URL } from '../config';
 
 const Login = () => {
-	const pwdMaxLength = 20;
-	const pwdMinLength = 8;
 
 	const [state, setState] = useState({
 		email: '',
@@ -56,7 +54,7 @@ const Login = () => {
 						name='email'
 						value={state.email}
 						onChange={handleChange}
-						placeholder='someone@someone.com'
+						placeholder='Email'
 					/>
 				</label>
 
@@ -67,9 +65,7 @@ const Login = () => {
 						name='password'
 						value={state.password}
 						onChange={handleChange}
-						minLength={pwdMinLength}
-						maxLength={pwdMaxLength}
-						placeholder='8-20 characters'
+						placeholder='Password'
 					/>
 				</label>
 
