@@ -112,7 +112,7 @@ const SignupForm = () => {
 
 			<label htmlFor='confirmPassword'>Confirm Password</label>
 			<Input
-				type='text'
+				type={state.showConfirmPassword ? 'text' : 'password'}
 				name='confirmPassword'
 				value={state.confirmPassword}
 				onChange={handleChange}

@@ -97,7 +97,11 @@ const LoginForm = () => {
 				</label>
 
 				<div>
-					<button type='submit'>Log In</button>
+					<button type='submit'>
+						<a href='/myhome'>
+							<span>Log In</span>
+						</a>
+					</button>
 				</div>
 
 				<div className='divide-line'></div>
