@@ -1,6 +1,7 @@
 import React from 'react';
 
 const HabitCard = () => {
+    const dateFormat = new Date();
     return (
         <div>
             <h2>{dateFormat.toLocaleString()}</h2>
