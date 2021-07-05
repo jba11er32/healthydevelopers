@@ -1,45 +1,44 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
-import Main from './components/Main';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import Profile from './components/Profile';
-import Month from './components/Month';
-import HabitForm from './components/HabitForm';
-import HabitCard from './components/HabitCard';
+import { API_URL } from './config';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 
 function App() {
+	const dispatch = useDispatch();
 
-	const [isLoggedIn, setIsLoggedIn] = useState(false)
+	const url = `${API_URL}/`;
 
 	useEffect(() => {
-		if (window.localStorage.getItem('token')) {
-			setIsLoggedIn(true)
-		} else {
-			setIsLoggedIn(false)
+		if (localStorage.token) {
+			const config = {
+				headers: {
+					Authorization: `Bearer ${localStorage.token}`
+				}
+			}
 		}
-	}, [])
 
+		fetch(url, config)
+			.then(res => res.json())
+			.then(user =>  {
+				dispatch({
+					type: 'SET_USER',
+					payload: user
+				})
 
-	// If the user is logged in, we display the users Profile which shows the dashboard containing Home, Today, Month, and About
-
-	if (isLoggedIn === false) {
-		return (
-			<div>
-				<Main />
-			</div>
-		)
-	} else {
-		return (
-			<div>
-				<Profile />
-			</div>
-		)
-	}
-
-	// return (
-	// 	<div>
-	// 		<HabitCard />
-	// 	</div>
-	// )
+				dispactch({
+					type: 'SET_HABITS',
+					payload: user.habits
+				})
+			})
+	})
+	return (
+		<Router>
+			<Profile />
+		</Router>
+	)
 
 }
 
