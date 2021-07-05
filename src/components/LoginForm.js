@@ -5,6 +5,8 @@ import Visibility from '@material-ui/icons/Visibility';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import Input from '@material-ui/core/Input';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 const LoginForm = () => {
 
@@ -13,6 +15,7 @@ const LoginForm = () => {
 		password: '',
 		showPassword: false,
 		showConfirmPassword: false,
+		results: []
 	});
 
 	function handleClickShowPassword () {
@@ -68,6 +71,7 @@ const LoginForm = () => {
 					value={state.email}
 					onChange={handleChange}
 					placeholder='Email'
+					required
 				/>
 
 				<Input
@@ -87,6 +91,7 @@ const LoginForm = () => {
 							</IconButton>
 						</InputAdornment>
 					}
+					required
 				/>
 
 				<div>

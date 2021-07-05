@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, Link } from 'react-router-dom';
 import { API_URL } from '../config';
 import IconButton from '@material-ui/core/IconButton';
 import Visibility from '@material-ui/icons/Visibility';
@@ -70,6 +70,7 @@ const SignupForm = () => {
 				value={state.firstName}
 				onChange={handleChange}
 				placeholder='First Name'
+				required
 			/>
 
 			<Input
@@ -78,6 +79,7 @@ const SignupForm = () => {
 				value={state.lastName}
 				onChange={handleChange}
 				placeholder='Last Name'
+				required
 			/>
 
 			<Input
@@ -86,6 +88,7 @@ const SignupForm = () => {
 				value={state.email}
 				onChange={handleChange}
 				placeholder='johndoe@someone.com'
+				required
 			/>
 
 			<Input
@@ -106,6 +109,7 @@ const SignupForm = () => {
 						</IconButton>
 					</InputAdornment>
 				}
+				required
 			/>
 
 			<Input
@@ -125,10 +129,13 @@ const SignupForm = () => {
 						</IconButton>
 					</InputAdornment>
 				}
+				required
 			/>
 
 			<div>
-				<button type='submit'>Sign Up</button>
+				<Link to={`/`}>
+					<button type='submit'>Sign Up</button>
+				</Link>
 			</div>
 		</form>
 		<div>
