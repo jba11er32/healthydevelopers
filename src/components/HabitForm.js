@@ -43,7 +43,7 @@ const HabitForm = () => {
 					type='text'
 					value={dailyData.water}
 					onChange={handleChange}
-					placeholder='x cups'
+					placeholder='0 cups'
 				/>
 
 				<label htmlFor='pushups'>Push-Ups</label>

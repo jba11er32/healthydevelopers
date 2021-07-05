@@ -1,10 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const Dashboard = () => {
+	let history = useHistory();
+
+	function handleClick() {
+		history.push('/myhome')
+	}
+
 	return <div>
 		<ul>
-			<li>
+			<li onClick={handleClick}>
 				<Link to='/myhome'>home</Link>
 			</li>
 			<li>

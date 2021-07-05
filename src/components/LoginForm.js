@@ -45,7 +45,7 @@ const LoginForm = () => {
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(userData),
 		})
-			.then((response) => response.json())
+			.then((res) => res.json())
 			.then((data) => {
 				window.localStorage.setItem('token', data.token);
 				window.localStorage.setItem('userId', data.foundUser._id);
@@ -62,39 +62,32 @@ const LoginForm = () => {
 	return (
 		<div>
 			<form onSubmit={handleSubmit}>
-				<label htmlFor='email'>
-					Email
-					<Input
-						type='text'
-						name='email'
-						value={state.email}
-						onChange={handleChange}
-						
-						placeholder='Email'
-					/>
-				</label>
+				<Input
+					type='text'
+					name='email'
+					value={state.email}
+					onChange={handleChange}
+					placeholder='Email'
+				/>
 
-				<label htmlFor='password'>
-					Password
-					<Input
-						type={state.showPassword ? 'text' : 'password'}
-						name='password'
-						value={state.password}
-						onChange={handleChange}
-						onClick={handleClickShowPassword}
-						placeholder='Password'
-						endAdornment={
-						<InputAdornment position="end">
-							<IconButton
-								onClick={handleClickShowPassword}
-								onMouseDown={handleMouseDownPassword}
-							>
-								{state.showPassword ? <Visibility /> : <VisibilityOff />}
-								</IconButton>
-							</InputAdornment>
-						}
-					/>
-				</label>
+				<Input
+					type={state.showPassword ? 'text' : 'password'}
+					name='password'
+					value={state.password}
+					onChange={handleChange}
+					onClick={handleClickShowPassword}
+					placeholder='Password'
+					endAdornment={
+					<InputAdornment position="end">
+						<IconButton
+							onClick={handleClickShowPassword}
+							onMouseDown={handleMouseDownPassword}
+						>
+							{state.showPassword ? <Visibility /> : <VisibilityOff />}
+							</IconButton>
+						</InputAdornment>
+					}
+				/>
 
 				<div>
 					<button type='submit'>

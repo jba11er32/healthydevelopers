@@ -1,7 +1,7 @@
 import React from 'react';
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 
 
@@ -14,12 +14,14 @@ const Main = () => {
                 {/* <img className='logo' src={logo} alt="Logo" /> */}
             </div>
             <div>
-                <Route exact path="/">
-                    <LoginForm />
-                </Route>
-                <Route path="/signup">
-                    <SignupForm />
-                </Route>
+                <Switch>
+                    <Route exact path="/">
+                        <LoginForm />
+                    </Route>
+                    <Route path="/signup">
+                        <SignupForm />
+                    </Route>
+                </Switch>
             </div>
         </div>
     );

@@ -64,23 +64,22 @@ const SignupForm = () => {
 
 	return <div>
 		<form onSubmit={handleSubmit}>
-			<label htmlFor='firstName'>First Name</label>
 			<Input
 				type='text'
 				name='firstName'
 				value={state.firstName}
 				onChange={handleChange}
+				placeholder='First Name'
 			/>
 
-			<label htmlFor='lastName'>Last Name</label>
 			<Input
 				type='text'
 				name='lastName'
 				value={state.lastName}
 				onChange={handleChange}
+				placeholder='Last Name'
 			/>
 
-			<label htmlFor='email'>Email</label>
 			<Input
 				type='text'
 				name='email'
@@ -89,7 +88,6 @@ const SignupForm = () => {
 				placeholder='johndoe@someone.com'
 			/>
 
-			<label htmlFor='password'>Password</label>
 			<Input
 				type={state.showPassword ? 'text' : 'password'}
 				name='password'
@@ -97,7 +95,7 @@ const SignupForm = () => {
 				onChange={handleChange}
 				onClick={handleClickShowPassword}
 				minLength={passwordMinLength}
-				placeholder='Must be at least 8 characters'
+				placeholder='Password'
 				endAdornment={
 					<InputAdornment position="end">
 						<IconButton
@@ -110,13 +108,13 @@ const SignupForm = () => {
 				}
 			/>
 
-			<label htmlFor='confirmPassword'>Confirm Password</label>
 			<Input
 				type={state.showConfirmPassword ? 'text' : 'password'}
 				name='confirmPassword'
 				value={state.confirmPassword}
 				onChange={handleChange}
 				onClick={handleClickShowPassword}
+				placeholder='Confirm Password'
 				endAdornment={
 					<InputAdornment position="end">
 						<IconButton
