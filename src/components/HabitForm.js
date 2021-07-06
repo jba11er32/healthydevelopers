@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { API_URL } from '../config';
+import { useDispatch } from 'react-redux';
 
 const HabitForm = () => {
 	const dailyInput = {
@@ -10,6 +11,8 @@ const HabitForm = () => {
 	};
 
 	const [dailyData, setDailyData] = useState(dailyInput);
+
+	const dispatch = useDispatch();
 
 	const handleChange = (event) => {
 		setDailyData({ ...dailyData, [event.target.id]: event.target.value });
@@ -27,8 +30,12 @@ const HabitForm = () => {
 			},
 		})
 			.then((response) => response.json())
-			.then((result) => {
-				console.log('Success:', result);
+			.then((habit) => {
+				console.log('Success:', habit);
+				dispatch({
+					type: 'SET_HABITS',
+					payload: habit.user.owner
+				})
 			})
 			.catch((error) => {
 				console.error('Error:', error);
@@ -71,7 +78,7 @@ const HabitForm = () => {
 				/>
 
 				<br />
-				<button type='submit' value='submit' />
+				<button type='submit' value='submit'>Submit</button>
 			</form>
 		</div>
 	);
