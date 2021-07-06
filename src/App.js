@@ -6,6 +6,7 @@ import Profile from './components/Profile';
 import Main from './components/Main';
 import { API_URL } from './config';
 import { BrowserRouter as Router } from 'react-router-dom';
+import SignupForm from './components/SignupForm'
 
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
 	return (
 		<Router>
 			<Switch>
-				<Route exact path='/' component={Object.keys(user).length ? Profile : Main} />
+				<Route exact path='/' component={Object.keys(user).length ? Profile : SignupForm} />
 				<Route exact path='/myhome' component={Profile} />
 				<Link to='/myhome'/>
 			</Switch>

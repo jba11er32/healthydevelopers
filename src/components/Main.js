@@ -18,7 +18,7 @@ const Main = () => {
                     <Route exact path="/">
                         <LoginForm />
                     </Route>
-                    <Route path="/signup">
+                    <Route exact path="/signup">
                         <SignupForm />
                     </Route>
                 </Switch>

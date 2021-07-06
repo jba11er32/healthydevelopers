@@ -15,6 +15,9 @@ const SignupForm = () => {
 		lastName: '',
 		email: '',
 		password: '',
+	})
+
+	const [confirmPassword, setConfirmPassword] = useState({
 		confirmPassword: '',
 		showPassword: false,
 		showConfirmPassword: false,
@@ -38,7 +41,7 @@ const SignupForm = () => {
 			password: ''
 		}
 
-		const url = `${API_URL}/signup`;
+		const url = `${API_URL}/users/signup`;
 		
 		if(state.password !== state.confirmPassword) {
 			alert("Passwords do not match");
@@ -46,7 +49,7 @@ const SignupForm = () => {
 			fetch(url, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(newUserData),
+				body: JSON.stringify(state),
 			})
 				.then((data) => {})
 				.then((res) => res.json())
@@ -133,9 +136,9 @@ const SignupForm = () => {
 			/>
 
 			<div>
-				<Link to={`/`}>
+				{/* <Link to={`/`}> */}
 					<button type='submit'>Sign Up</button>
-				</Link>
+				{/* </Link> */}
 			</div>
 		</form>
 		<div>

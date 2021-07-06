@@ -6,7 +6,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import Input from '@material-ui/core/Input';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const LoginForm = () => {
 	const dispatch = useDispatch();
@@ -112,9 +112,9 @@ const LoginForm = () => {
 
 				<div>
 					<button type='submit'>
-						<a href='/myhome'>
+						<Link to='/myhome'>
 							<span>Log In</span>
-						</a>
+						</Link>
 					</button>
 				</div>
 
@@ -122,11 +122,11 @@ const LoginForm = () => {
 
 				<div>
 					<p>Don't have an account?</p>
-					<a href='/signup'>
+					<Link to='/signup'>
 						<span>
 							Sign Up
 						</span>
-					</a>
+					</Link>
 				</div>
 			</form>
 		</div>
