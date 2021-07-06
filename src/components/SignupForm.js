@@ -35,9 +35,9 @@ const SignupForm = () => {
 		event.preventDefault();
 		console.log(state)
 
-		const url = `${API_URL}/users/signup`;
+		// const url = `${API_URL}/users/signup`;
 		
-		// const url = 'https://healthydevelopers-jl.herokuapp.com/users/signup'
+		const url = 'https://healthydevelopers-jl.herokuapp.com/users/signup'
 
 		if(state.password !== confirmPassword.confirmPassword) {
 			alert("Passwords do not match");
@@ -140,9 +140,7 @@ const SignupForm = () => {
 			/>
 
 			<div>
-				{/* <Link to={`/`}> */}
 					<button type='submit'>Sign Up</button>
-				{/* </Link> */}
 			</div>
 		</form>
 		<div>
