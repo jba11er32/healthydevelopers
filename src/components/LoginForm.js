@@ -9,6 +9,8 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 const LoginForm = () => {
+	const dispatch = useDispatch();
+	const history = useHistory();
 
 	const [state, setState] = useState({
 		email: '',
@@ -38,10 +40,11 @@ const LoginForm = () => {
 		event.preventDefault();
 		const userData = {
 			"email": state.email,
-			"password": state.password
+			"password": state.password,
+			"results": []
 		};
 
-		const url = `${API_URL}/`;
+		const url = `${API_URL}/users/login`;
 
 		fetch(url, {
 			method: 'POST',
@@ -49,9 +52,22 @@ const LoginForm = () => {
 			body: JSON.stringify(userData),
 		})
 			.then((res) => res.json())
-			.then((data) => {
-				window.localStorage.setItem('token', data.token);
-				window.localStorage.setItem('userId', data.foundUser._id);
+			.then((user) => {
+				if (user.token) {
+					localStorage.token = user.token
+
+					dispatch({
+						type: 'SET_USER',
+						payload: user.firstName
+					})
+
+					dispatch({
+						type: 'SET_HABITS',
+						payload: user.habits
+					})
+
+					history.push("/myhome")
+				}
 			})
 			.then(
 				setTimeout(() => {
