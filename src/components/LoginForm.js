@@ -63,7 +63,7 @@ const LoginForm = () => {
 
 					dispatch({
 						type: 'SET_HABITS',
-						payload: user.habits
+						payload: user.owner
 					})
 
 					history.push("/myhome")

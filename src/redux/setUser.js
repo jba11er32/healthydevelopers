@@ -1,8 +1,8 @@
 const setUser = (user) => {
-    return (
+    return {
         type: 'SET_USER',
         payload: user
-    )
-};
+    }
+}
 
 export default setUser;

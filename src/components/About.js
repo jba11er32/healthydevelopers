@@ -1,7 +1,7 @@
 import React from 'react';
 
 const About = () => {
-	return <div></div>;
+	return <div>Created by Jonathan Lee</div>;
 };
 
 export default About;

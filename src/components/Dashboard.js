@@ -22,6 +22,9 @@ const Dashboard = () => {
 			<li>
 				<Link to='/about'>about</Link>
 			</li>
+			<li>
+				<Link to='/'>logout</Link>
+			</li>
 		</ul>
 	</div>;
 };
