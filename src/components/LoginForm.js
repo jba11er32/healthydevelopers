@@ -15,9 +15,6 @@ const LoginForm = () => {
 	const [state, setState] = useState({
 		email: '',
 		password: '',
-		// showPassword: false,
-		// showConfirmPassword: false,
-		// results: []
 	});
 
 	const [confirmPassword, setConfirmPassword] = useState({
@@ -25,8 +22,8 @@ const LoginForm = () => {
 		showConfirmPassword: false,
 	})
 
-	const [results, setResults] = useState({
-		results: []
+	const [userHabits, setUserHabits] = useState({
+		habits: []
 	})
 
 	function handleClickShowPassword () {
@@ -47,11 +44,11 @@ const LoginForm = () => {
 	
 	function handleSubmit(event) {
 		event.preventDefault();
-		// const userData = {
-		// 	"email": state.email,
-		// 	"password": state.password,
-		// 	"results": []
-		// };
+		const userData = {
+			email: state.email,
+			password: state.password,
+			habits: userHabits.habits
+		};
 
 		// const url = `${API_URL}/users/login`;
 		const url = 'https://healthydevelopers-jl.herokuapp.com/users/login/'
@@ -59,13 +56,15 @@ const LoginForm = () => {
 		fetch(url, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify(state),
+			body: JSON.stringify({...userData, userData.email, userData.password}),
 		})
 			.then((res) => res.json())
 			.then((user) => {
 				console.log(user)
 				if (user.token) {
 					localStorage.setItem('token', user.token)
+					localStorage.setItem('owner', user.foundUser._id)
+					localStorage.setItem('name', user.foundUser.firstName)
 
 					dispatch({
 						type: 'SET_USER',

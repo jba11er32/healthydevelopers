@@ -1,4 +1,4 @@
-const habitReducer = (state = {}, { type, payload }) => {
+const habitReducer = (state = [], { type, payload }) => {
     switch (type) {
         case 'SET_HABITS':
             return payload;

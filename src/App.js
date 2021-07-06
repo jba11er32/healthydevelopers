@@ -16,29 +16,29 @@ function App() {
 	const user = useSelector(state => state.user)
 
 	// const url = `${API_URL}/`;
-	const url = 'https://healthydevelopers-jl.herokuapp.com/users/login/'
+	const url = 'https://healthydevelopers-jl.herokuapp.com/users/login'
 
-	useEffect(() => {
-		fetch(url, {
-			headers: { 
-				'Authorization': `Bearer ${localStorage.getItem('token')}`, 
-				'Content-Type': 'application/json',
-			}
-		})
-			.then((res) => res.json())
-			.then((user) => {
-				dispatch({
-					type: 'SET_USER',
-					payload: user
-				})
+	// useEffect(() => {
+	// 	fetch(url, {
+	// 		headers: { 
+	// 			'Authorization': `Bearer ${localStorage.getItem('token')}`, 
+	// 			'Content-Type': 'application/json',
+	// 		}
+	// 	})
+	// 		.then((res) => res.json())
+	// 		.then((user) => {
+	// 			dispatch({
+	// 				type: 'SET_USER',
+	// 				payload: user
+	// 			})
 
-				dispatch({
-					type: 'SET_HABITS',
-					payload: user.owner
-				})
-			})
+	// 			dispatch({
+	// 				type: 'SET_HABITS',
+	// 				payload: user.owner
+	// 			})
+	// 		})
 
-	})
+	// })
 
 	return (
 		<Router>
