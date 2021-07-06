@@ -9,6 +9,7 @@ import store from './redux/store';
 
 ReactDOM.render(
 	<React.StrictMode>
+		{/* Provider component makes the Redux store available to any nexted components that need to access it. We render <Provider></Provider> at the top level since we want to allow any React component to be connected to the store. */}
 		<Provider store={store}>
 			<App />
 		</Provider>
