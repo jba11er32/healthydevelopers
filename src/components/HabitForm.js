@@ -22,7 +22,7 @@ const HabitForm = () => {
 			method: 'POST',
 			body: JSON.stringify(dailyData),
 			headers: {
-				Authorization: `Bearer ${window.localStorage.getItem('token')}`,
+				Authorization: `Bearer ${localStorage.getItem('token')}`,
 				'Content-Type': 'application/json',
 			},
 		})

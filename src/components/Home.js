@@ -20,7 +20,7 @@ const Home = () => {
                 onChange={handleChange}
                 value={state.date}
             />
-			<h2>Welcome {user.firstName}</h2>
+			<h2>Welcome</h2>
         </div>
     );
 };

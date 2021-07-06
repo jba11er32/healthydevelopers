@@ -24,7 +24,7 @@ const SignupForm = () => {
 	})
 
 	function handleClickShowPassword () {
-		setState({ ...state, showPassword: !state.showPassword, showConfirmPassword: !state.showConfirmPassword })
+		setConfirmPassword({ ...confirmPassword, showPassword: !confirmPassword.showPassword, showConfirmPassword: !confirmPassword.showConfirmPassword })
 	}
 
 	function handleMouseDownPassword (event) {
@@ -33,17 +33,13 @@ const SignupForm = () => {
 
 	function handleSubmit(event) {
 		event.preventDefault();
-		
-		const newUserData = {
-			firstName: '',
-			lastName: '',
-			email: '',
-			password: ''
-		}
+		console.log(state)
 
 		const url = `${API_URL}/users/signup`;
 		
-		if(state.password !== state.confirmPassword) {
+		// const url = 'https://healthydevelopers-jl.herokuapp.com/users/signup'
+
+		if(state.password !== confirmPassword.confirmPassword) {
 			alert("Passwords do not match");
 		} else {		
 			fetch(url, {
@@ -51,9 +47,9 @@ const SignupForm = () => {
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(state),
 			})
-				.then((data) => {})
 				.then((res) => res.json())
-				.catch((data) => {});
+				.then((data) => {})
+				.catch((err) => {console.log(err)});
 		}
 	}
 
@@ -61,6 +57,14 @@ const SignupForm = () => {
 		const value = event.target.value;
 		setState({
 			...state,
+			[event.target.name]: value,
+		})
+	}
+
+	function handleConfirmChange(event) {
+		const value = event.target.value;
+		setConfirmPassword({
+			...confirmPassword,
 			[event.target.name]: value,
 		})
 	}
@@ -118,8 +122,8 @@ const SignupForm = () => {
 			<Input
 				type={state.showConfirmPassword ? 'text' : 'password'}
 				name='confirmPassword'
-				value={state.confirmPassword}
-				onChange={handleChange}
+				value={confirmPassword.confirmPassword}
+				onChange={handleConfirmChange}
 				onClick={handleClickShowPassword}
 				placeholder='Confirm Password'
 				endAdornment={
@@ -143,11 +147,11 @@ const SignupForm = () => {
 		</form>
 		<div>
 			<p>Already have an account?</p>
-				<a href='/'>
+				<Link to='/'>
 					<span>
 						Log In
 					</span>
-				</a>
+				</Link>
 		</div>
 	</div>;
 };

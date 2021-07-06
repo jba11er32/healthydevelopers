@@ -14,35 +14,37 @@ function App() {
 	// grabs the user in 
 	const user = useSelector(state => state.user)
 
-	const url = `${API_URL}/`;
+	// const url = `${API_URL}/`;
+	const url = 'https://healthydevelopers-jl.herokuapp.com/users/login/'
 
-	useEffect(() => {
-		if (localStorage.token) {
-			const config = {
-				headers: {
-					Authorization: `Bearer ${localStorage.token}`
-				}
-			}
+	// useEffect(() => {
+	// 	if (localStorage.token) {
+	// 		const config = {
+	// 			headers: {
+	// 				Authorization: `Bearer ${localStorage.token}`
+	// 			}
+	// 		}
 			
-			fetch(url, config)
-			.then(res => res.json())
-			.then(user =>  {
-				dispatch({
-					type: 'SET_USER',
-					payload: user
-				})
+	// 		fetch(url, config)
+	// 		.then(res => res.json())
+	// 		.then(user =>  {
+	// 			dispatch({
+	// 				type: 'SET_USER',
+	// 				payload: user
+	// 			})
 				
-				dispatch({
-					type: 'SET_HABITS',
-					payload: user.owner
-				})
-			})
-		}
-	})
+	// 			dispatch({
+	// 				type: 'SET_HABITS',
+	// 				payload: user.owner
+	// 			})
+	// 		})
+	// 	}
+	// })
+
 	return (
 		<Router>
 			<Switch>
-				<Route exact path='/' component={Object.keys(user).length ? Profile : SignupForm} />
+				<Route exact path='/' component={Object.keys(user).length ? Profile : Main} />
 				<Route exact path='/myhome' component={Profile} />
 				<Link to='/myhome'/>
 			</Switch>

@@ -15,13 +15,22 @@ const LoginForm = () => {
 	const [state, setState] = useState({
 		email: '',
 		password: '',
-		showPassword: false,
-		showConfirmPassword: false,
-		results: []
+		// showPassword: false,
+		// showConfirmPassword: false,
+		// results: []
 	});
 
+	const [confirmPassword, setConfirmPassword] = useState({
+		showPassword: false,
+		showConfirmPassword: false,
+	})
+
+	const [results, setResults] = useState({
+		results: []
+	})
+
 	function handleClickShowPassword () {
-		setState({ ...state, showPassword: !state.showPassword, showConfirmPassword: !state.showConfirmPassword })
+		setConfirmPassword({ ...confirmPassword, showPassword: !confirmPassword.showPassword, showConfirmPassword: !confirmPassword.showConfirmPassword })
 	}
 
 	function handleMouseDownPassword (event) {
@@ -38,23 +47,25 @@ const LoginForm = () => {
 	
 	function handleSubmit(event) {
 		event.preventDefault();
-		const userData = {
-			"email": state.email,
-			"password": state.password,
-			"results": []
-		};
+		// const userData = {
+		// 	"email": state.email,
+		// 	"password": state.password,
+		// 	"results": []
+		// };
 
-		const url = `${API_URL}/users/login`;
+		// const url = `${API_URL}/users/login`;
+		const url = 'https://healthydevelopers-jl.herokuapp.com/users/login/'
 
 		fetch(url, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify(userData),
+			body: JSON.stringify(state),
 		})
 			.then((res) => res.json())
 			.then((user) => {
+				console.log(user)
 				if (user.token) {
-					localStorage.token = user.token
+					localStorage.setItem('token', user.token)
 
 					dispatch({
 						type: 'SET_USER',
@@ -69,12 +80,12 @@ const LoginForm = () => {
 					history.push("/myhome")
 				}
 			})
-			.then(
-				setTimeout(() => {
-					window.location.reload(true);
-				}, 150)
-			)
-			.catch((data) => {});
+			// .then(
+			// 	setTimeout(() => {
+			// 		window.location.reload(true);
+			// 	}, 150)
+			// )
+			.catch((err) => {console.log(err)});
 	}
 
 
@@ -112,9 +123,9 @@ const LoginForm = () => {
 
 				<div>
 					<button type='submit'>
-						<Link to='/myhome'>
+						{/* <Link to='/myhome'> */}
 							<span>Log In</span>
-						</Link>
+						{/* </Link> */}
 					</button>
 				</div>
 
