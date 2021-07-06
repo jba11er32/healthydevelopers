@@ -6,40 +6,36 @@ import Profile from './components/Profile';
 import Main from './components/Main';
 import { API_URL } from './config';
 import { BrowserRouter as Router } from 'react-router-dom';
-import SignupForm from './components/SignupForm'
+import SignupForm from './components/SignupForm';
+import Home from './components/Home';
 
 
 function App() {
 	const dispatch = useDispatch();
-	// grabs the user in 
+	// grabs user from rootReducer
 	const user = useSelector(state => state.user)
 
 	// const url = `${API_URL}/`;
 	const url = 'https://healthydevelopers-jl.herokuapp.com/users/login/'
 
-	// useEffect(() => {
-	// 	if (localStorage.token) {
-	// 		const config = {
-	// 			headers: {
-	// 				Authorization: `Bearer ${localStorage.token}`
-	// 			}
-	// 		}
-			
-	// 		fetch(url, config)
-	// 		.then(res => res.json())
-	// 		.then(user =>  {
-	// 			dispatch({
-	// 				type: 'SET_USER',
-	// 				payload: user
-	// 			})
-				
-	// 			dispatch({
-	// 				type: 'SET_HABITS',
-	// 				payload: user.owner
-	// 			})
-	// 		})
-	// 	}
-	// })
+	useEffect(() => {
+		fetch(url, {
+			headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}`}
+		})
+			.then((res) => res.json())
+			.then((user) => {
+				dispatch({
+					type: 'SET_USER',
+					payload: user
+				})
+
+				dispatch({
+					type: 'SET_HABITS',
+					payload: user.owner
+				})
+			})
+
+	})
 
 	return (
 		<Router>

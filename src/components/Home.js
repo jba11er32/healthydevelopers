@@ -7,7 +7,7 @@ const Home = () => {
 	const [state, setState] = useState({
             date: new Date(),
     })
-	const user = useSelector(state => state.firstName);
+	const user = useSelector(state => state.user);
 
     function handleChange (date) {
         setState({ date })
@@ -20,7 +20,7 @@ const Home = () => {
                 onChange={handleChange}
                 value={state.date}
             />
-			<h2>Welcome</h2>
+			<h2>Welcome {user.firstName}</h2>
         </div>
     );
 };
