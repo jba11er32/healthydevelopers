@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { Route, Link } from 'react-router-dom';
 import HabitCard from './HabitCard';
 
 
 const HabitDisplay = () => {
+
     const [userHabits, setUserHabits] = useState()
 
     useEffect(() => {

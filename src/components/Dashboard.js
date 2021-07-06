@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import Logout from './Logout';
 
 const Dashboard = () => {
 	let history = useHistory();
@@ -23,7 +24,7 @@ const Dashboard = () => {
 				<Link to='/about'>about</Link>
 			</li>
 			<li>
-				<Link to='/'>logout</Link>
+				<Logout />
 			</li>
 		</ul>
 	</div>;

@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 const Logout = () => {
     const dispatch = useDispatch()
 
-    function clearLocalStorage() {
+    function handleLogOut() {
         localStorage.clear()
         dispatch({
             type: "LOG_OUT"
@@ -13,9 +13,11 @@ const Logout = () => {
     }
 
     return (
-        <div>
-            
-        </div>
+        <>
+            <Link onClick={handleLogOut} to='/'>
+                log out
+            </Link>
+        </>
     );
 };
 
