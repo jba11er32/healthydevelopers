@@ -22,9 +22,6 @@ const LoginForm = () => {
 		showConfirmPassword: false,
 	})
 
-	const [userHabits, setUserHabits] = useState({
-		habits: []
-	})
 
 	function handleClickShowPassword () {
 		setConfirmPassword({ ...confirmPassword, showPassword: !confirmPassword.showPassword, showConfirmPassword: !confirmPassword.showConfirmPassword })
@@ -70,12 +67,7 @@ const LoginForm = () => {
 						payload: user
 					})
 
-					dispatch({
-						type: 'SET_HABITS',
-						payload: user.owner
-					})
-
-					history.push("/myhome")
+					history.push("/myprofile")
 				}
 			})
 			// .then(

@@ -1,34 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 import Dashboard from './Dashboard';
-import Home from './Home';
-import Today from './Today';
-import Month from './Month';
-import About from './About';
 import HabitDisplay from './HabitDisplay';
 
-
 const Profile = () => {
+    const [state, setState] = useState({
+            date: new Date(),
+    })
+
+    function handleChange (date) {
+        setState({ date });
+    }
+
     return (
         <div>
             <div>
                 <Dashboard />
+                <h2>Welcome {localStorage.name}!</h2>
             </div>
             <div>
-                <Switch>
-                    <Route exact path='/myhome'>
-                        <Home />
-                    </Route >
-                    <Route exact path='/today' component={Today}>
-                        <Today />
-                    </Route>
-                    <Route exact path='/month'>
-                        <Month />
-                    </Route>
-                    <Route exact path='/about'>
-                        <About />
-                    </Route>
-                </Switch>
+                <Route exact path='/myprofile'>
+                    <Calendar 
+                        onChange={handleChange}
+                        value={state.date}
+                    />
+                </Route >
                 <HabitDisplay />
             </div>
         </div>

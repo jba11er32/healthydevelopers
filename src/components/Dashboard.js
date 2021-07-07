@@ -6,7 +6,7 @@ const Dashboard = () => {
 	let history = useHistory();
 
 	function handleClick() {
-		history.push('/myhome')
+		history.push('/myprofile')
 	}
 
 	return (
@@ -16,7 +16,7 @@ const Dashboard = () => {
             </div>
 			<ul>
 				<li onClick={handleClick}>
-					<Link to='/myhome'>home</Link>
+					<Link to='/myprofile'>home</Link>
 				</li>
 				<li>
 					<Link to='/today'>today</Link>

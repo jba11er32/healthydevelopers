@@ -1,19 +1,15 @@
 import React, { useState } from 'react';
 import { API_URL } from '../config';
-import { useDispatch } from 'react-redux';
-import Dashboard from './Dashboard';
 
 const HabitForm = () => {
 	const dailyInput = {
-		water: '',
-		pushups: '',
-		situps: '',
-		squats: '',
+		water: '0',
+		pushups: '0',
+		situps: '0',
+		squats: '0',
 	};
 
 	const [dailyData, setDailyData] = useState(dailyInput);
-
-	const dispatch = useDispatch();
 
 	const handleChange = (event) => {
 		setDailyData({ ...dailyData, [event.target.id]: event.target.value });
@@ -21,7 +17,7 @@ const HabitForm = () => {
 
 	function handleSubmit(event) {
 		event.preventDefault();
-		const url = `${API_URL}/habits/create`;
+		const url = `https://healthydevelopers-jl.herokuapp.com/create`;
 		fetch(url, {
 			method: 'POST',
 			body: JSON.stringify(dailyData),
@@ -30,13 +26,9 @@ const HabitForm = () => {
 				'Content-Type': 'application/json',
 			},
 		})
-			.then((response) => response.json())
+			.then((res) => res.json())
 			.then((habit) => {
 				console.log('Success:', habit);
-				dispatch({
-					type: 'SET_HABITS',
-					payload: habit.user.owner
-				})
 			})
 			.catch((error) => {
 				console.error('Error:', error);
@@ -45,7 +37,6 @@ const HabitForm = () => {
 
 	return (
 		<div>
-			<Dashboard />
 			<form onSubmit={handleSubmit}>
 				<label htmlFor='water'>Water</label>
 				<input

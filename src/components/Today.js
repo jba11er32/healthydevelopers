@@ -6,9 +6,7 @@ const Today = () => {
     return (
         <div>
             <Dashboard />
-            <h1>
-                Today's Numbers: 0
-            </h1>
+            <h1>Today's Numbers: 0</h1>
             <HabitForm />
         </div>
     );
