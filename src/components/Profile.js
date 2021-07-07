@@ -5,6 +5,7 @@ import Home from './Home';
 import Today from './Today';
 import Month from './Month';
 import About from './About';
+import HabitDisplay from './HabitDisplay';
 
 
 const Profile = () => {
@@ -27,6 +28,7 @@ const Profile = () => {
                 <Route path='/about'>
                     <About />
                 </Route>
+                <HabitDisplay />
             </div>
         </div>
     );

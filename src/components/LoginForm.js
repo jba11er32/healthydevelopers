@@ -47,7 +47,6 @@ const LoginForm = () => {
 		const userData = {
 			email: state.email,
 			password: state.password,
-			habits: userHabits.habits
 		};
 
 		// const url = `${API_URL}/users/login`;
@@ -56,7 +55,7 @@ const LoginForm = () => {
 		fetch(url, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({...userData, userData.email, userData.password}),
+			body: JSON.stringify(userData),
 		})
 			.then((res) => res.json())
 			.then((user) => {
@@ -68,7 +67,7 @@ const LoginForm = () => {
 
 					dispatch({
 						type: 'SET_USER',
-						payload: user.firstName
+						payload: user
 					})
 
 					dispatch({

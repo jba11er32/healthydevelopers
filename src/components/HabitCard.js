@@ -3,6 +3,7 @@ import React from 'react';
 const HabitCard = ({ details }) => {
     const date = new Date(details.created_at);
     console.log(date.toLocaleString('default', {month: 'long'}))
+    
     return (
         <div>
             <h2>{date.toLocaleString('default', {month: 'long'})}</h2>
