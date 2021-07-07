@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { API_URL } from '../config';
 import { useDispatch } from 'react-redux';
+import Dashboard from './Dashboard';
 
 const HabitForm = () => {
 	const dailyInput = {
@@ -44,6 +45,7 @@ const HabitForm = () => {
 
 	return (
 		<div>
+			<Dashboard />
 			<form onSubmit={handleSubmit}>
 				<label htmlFor='water'>Water</label>
 				<input

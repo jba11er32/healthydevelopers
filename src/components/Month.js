@@ -1,9 +1,13 @@
 import React from 'react';
+import Dashboard from './Dashboard';
 
 const Month = () => {
     return (
         <div>
-            Longest Streak: 0
+            <Dashboard />
+            <h1>
+                Longest Streak: 0
+            </h1>
         </div>
     );
 };

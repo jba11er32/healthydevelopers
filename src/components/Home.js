@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import { useSelector } from 'react-redux';
 
 const Home = () => {
 	const [state, setState] = useState({
             date: new Date(),
     })
-	const user = useSelector(state => state.user);
 
     function handleChange (date) {
         setState({ date })
@@ -20,7 +18,7 @@ const Home = () => {
                 onChange={handleChange}
                 value={state.date}
             />
-			<h2>Welcome {user.firstName}</h2>
+			<h2>Welcome {localStorage.name}</h2>
         </div>
     );
 };

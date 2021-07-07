@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Link } from 'react-router-dom';
+import Dashboard from './Dashboard';
 import HabitCard from './HabitCard';
 
 
@@ -35,6 +36,7 @@ const HabitDisplay = () => {
     // Return all habits by user
     return (
         <div>
+            <Dashboard />
             {
                 userHabits.map((habit) => {
                     return (

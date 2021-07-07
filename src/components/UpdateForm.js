@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Dashboard from './Dashboard';
 
 const UpdateForm = () => {
 	const dailyInput = {
@@ -36,6 +37,7 @@ const UpdateForm = () => {
 
 	return (
 		<div>
+			<Dashboard />
 			<form onSubmit={handleSubmit}>
 				<label htmlFor='water'>Water</label>
 				<input
