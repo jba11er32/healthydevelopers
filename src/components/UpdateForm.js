@@ -17,7 +17,7 @@ const UpdateForm = () => {
 
 	function handleSubmit(event) {
 		event.preventDefault();
-		const url = `${API_URL}/habits/${}`;
+		const url = `https://healthydevelopers-jl.herokuapp.com/${}`;
 		fetch(url, {
 			method: 'PUT',
 			body: JSON.stringify(dailyData),
@@ -41,6 +41,7 @@ const UpdateForm = () => {
 			<form onSubmit={handleSubmit}>
 				<label htmlFor='water'>Water</label>
 				<input
+					id='water'
 					type='text'
 					value={dailyData.water}
 					onChange={handleChange}
@@ -49,6 +50,7 @@ const UpdateForm = () => {
 
 				<label htmlFor='pushups'>Push-Ups</label>
 				<input
+					id='pushups'
 					type='text'
 					value={dailyData.pushups}
 					onChange={handleChange}
@@ -57,6 +59,7 @@ const UpdateForm = () => {
 
 				<label htmlFor='situps'>Sit-Ups</label>
 				<input
+					id='situps'
 					type='text'
 					value={dailyData.situps}
 					onChange={handleChange}
@@ -65,6 +68,7 @@ const UpdateForm = () => {
 
 				<label htmlFor='squats'>Squats</label>
 				<input
+					id='squats'
 					type='text'
 					value={dailyData.squats}
 					onChange={handleChange}

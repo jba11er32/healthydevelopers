@@ -40,7 +40,7 @@ const HabitForm = () => {
 			<form onSubmit={handleSubmit}>
 				<label htmlFor='water'>Water</label>
 				<input
-					id="water"
+					id='water'
 					type='text'
 					value={dailyData.water}
 					onChange={handleChange}
@@ -49,7 +49,7 @@ const HabitForm = () => {
 
 				<label htmlFor='pushups'>Push-Ups</label>
 				<input
-					id="pushups"
+					id='pushups'
 					type='text'
 					value={dailyData.pushups}
 					onChange={handleChange}
@@ -58,7 +58,7 @@ const HabitForm = () => {
 
 				<label htmlFor='situps'>Sit-Ups</label>
 				<input
-					id="situps"
+					id='situps'
 					type='text'
 					value={dailyData.situps}
 					onChange={handleChange}
@@ -67,7 +67,7 @@ const HabitForm = () => {
 
 				<label htmlFor='squats'>Squats</label>
 				<input
-					id="squats"
+					id='squats'
 					type='text'
 					value={dailyData.squats}
 					onChange={handleChange}
