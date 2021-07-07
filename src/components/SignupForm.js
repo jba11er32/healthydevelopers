@@ -24,7 +24,11 @@ const SignupForm = () => {
 	})
 
 	function handleClickShowPassword () {
-		setConfirmPassword({ ...confirmPassword, showPassword: !confirmPassword.showPassword, showConfirmPassword: !confirmPassword.showConfirmPassword })
+		setConfirmPassword({ ...confirmPassword, showPassword: !confirmPassword.showPassword})
+	}
+
+	function handleClickShowConfirmPassword() {
+		setConfirmPassword({ ...confirmPassword, showConfirmPassword: !confirmPassword.showConfirmPassword})
 	}
 
 	function handleMouseDownPassword (event) {
@@ -100,11 +104,10 @@ const SignupForm = () => {
 				/>
 
 				<Input
-					type={state.showPassword ? 'text' : 'password'}
+					type={confirmPassword.showPassword ? 'text' : 'password'}
 					name='password'
 					value={state.password}
 					onChange={handleChange}
-					onClick={handleClickShowPassword}
 					minLength={passwordMinLength}
 					placeholder='Password'
 					endAdornment={
@@ -113,7 +116,7 @@ const SignupForm = () => {
 								onClick={handleClickShowPassword}
 								onMouseDown={handleMouseDownPassword}
 							>
-								{state.showPassword ? <Visibility /> : <VisibilityOff />}
+								{confirmPassword.showPassword ? <Visibility /> : <VisibilityOff />}
 							</IconButton>
 						</InputAdornment>
 					}
@@ -121,19 +124,18 @@ const SignupForm = () => {
 				/>
 
 				<Input
-					type={state.showConfirmPassword ? 'text' : 'password'}
+					type={confirmPassword.showConfirmPassword ? 'text' : 'password'}
 					name='confirmPassword'
 					value={confirmPassword.confirmPassword}
 					onChange={handleConfirmChange}
-					onClick={handleClickShowPassword}
 					placeholder='Confirm Password'
 					endAdornment={
 						<InputAdornment position="end">
 							<IconButton
-								onClick={handleClickShowPassword}
+								onClick={handleClickShowConfirmPassword}
 								onMouseDown={handleMouseDownPassword}
 							>
-								{state.showPassword ? <Visibility /> : <VisibilityOff />}
+								{confirmPassword.showPassword ? <Visibility /> : <VisibilityOff />}
 							</IconButton>
 						</InputAdornment>
 					}
