@@ -10,7 +10,13 @@ const HabitDisplay = () => {
     useEffect(() => {
         const url = 'https://healthydevelopers-jl.herokuapp.com/habits'
 
-        fetch(url)
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+				'Content-Type': 'application/json',
+            }
+        })
             .then(res => res.json())
             .then(habits => {
                 console.log(userHabits)
@@ -33,7 +39,7 @@ const HabitDisplay = () => {
                 userHabits.map((habit) => {
                     return (
                         <Link to={`/habits/${habit._id}`}>
-                            <HabitCard details={habit} />
+                            <HabitCard habit={habit} />
                         </Link>
                     )
                 })

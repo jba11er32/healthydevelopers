@@ -9,25 +9,30 @@ const Dashboard = () => {
 		history.push('/myhome')
 	}
 
-	return <div>
-		<ul>
-			<li onClick={handleClick}>
-				<Link to='/myhome'>home</Link>
-			</li>
-			<li>
-				<Link to='/today'>today</Link>
-			</li>
-			<li>
-				<Link to='/month'>month</Link>
-			</li>
-			<li>
-				<Link to='/about'>about</Link>
-			</li>
-			<li>
-				<Logout />
-			</li>
-		</ul>
-	</div>;
+	return (
+		<div>
+			<div>
+                <h1>DevHealthyHabits</h1>
+            </div>
+			<ul>
+				<li onClick={handleClick}>
+					<Link to='/myhome'>home</Link>
+				</li>
+				<li>
+					<Link to='/today'>today</Link>
+				</li>
+				<li>
+					<Link to='/month'>month</Link>
+				</li>
+				<li>
+					<Link to='/about'>about</Link>
+				</li>
+				<li>
+					<Logout />
+				</li>
+			</ul>
+		</div>
+	)
 };
 
 export default Dashboard;

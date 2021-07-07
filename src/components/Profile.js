@@ -12,10 +12,9 @@ const Profile = () => {
     return (
         <div>
             <div>
-                <h1>DevHealthyHabits</h1>
+                <Dashboard />
             </div>
             <div>
-                <Dashboard />
                 <Route exact path='/myhome'>
                     <Home />
                 </Route >
