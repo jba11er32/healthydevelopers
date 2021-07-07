@@ -3,10 +3,10 @@ import { API_URL } from '../config';
 
 const HabitForm = () => {
 	const dailyInput = {
-		water: '0',
-		pushups: '0',
-		situps: '0',
-		squats: '0',
+		water: '',
+		pushups: '',
+		situps: '',
+		squats: '',
 	};
 
 	const [dailyData, setDailyData] = useState(dailyInput);
@@ -40,6 +40,7 @@ const HabitForm = () => {
 			<form onSubmit={handleSubmit}>
 				<label htmlFor='water'>Water</label>
 				<input
+					id="water"
 					type='text'
 					value={dailyData.water}
 					onChange={handleChange}
@@ -48,6 +49,7 @@ const HabitForm = () => {
 
 				<label htmlFor='pushups'>Push-Ups</label>
 				<input
+					id="pushups"
 					type='text'
 					value={dailyData.pushups}
 					onChange={handleChange}
@@ -56,6 +58,7 @@ const HabitForm = () => {
 
 				<label htmlFor='situps'>Sit-Ups</label>
 				<input
+					id="situps"
 					type='text'
 					value={dailyData.situps}
 					onChange={handleChange}
@@ -64,6 +67,7 @@ const HabitForm = () => {
 
 				<label htmlFor='squats'>Squats</label>
 				<input
+					id="squats"
 					type='text'
 					value={dailyData.squats}
 					onChange={handleChange}
