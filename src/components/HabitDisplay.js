@@ -26,7 +26,7 @@ const HabitDisplay = () => {
             .then(res => res.json())
             .then(habits => {
                 const currentDateHabits = habits.filter((habit) => {
-                    console.log(new Date(habit.createdAt).toLocaleString().split(',')[0])
+                    // console.log(new Date(habit.createdAt).toLocaleString().split(',')[0])
                     const habitDate = new Date(habit.createdAt).toLocaleString().split(',')[0]
                     const calendarDate = currentDate.toLocaleString().split(',')[0]
                     return habitDate === calendarDate
@@ -37,9 +37,9 @@ const HabitDisplay = () => {
                 console.log(err);
             })
     }
-
+    // console.log(userHabits)
     // If user has no post for that day, return button to create
-    if (!userHabits) {
+    if (!userHabits.length) {
         return (
             <div>
                 <Calendar onChange={handleChangeDate} value={currentDate}/>
