@@ -34,3 +34,10 @@ As a user, I would like to update my activities for older days.
 - Include a calender that shows every day that they made a post.
 - Set goals on a certain day so that the user can prepare for that goal.
 - Implement a One-Punch Man workout.
+
+### Deployed Apps
+github frontend: https://github.com/jba11er32/healthydevelopers
+
+github backend: https://github.com/jba11er32/healthydevelopers-be
+
+heroku frontend: https://devhealthyhabits.herokuapp.com/
