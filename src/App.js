@@ -23,6 +23,7 @@ function App() {
 		return (
 		<Router>
 			<Route exact path='/' component={Main} />
+			<Route exact path='/signup' component={Main} />
 			<Redirect to='/' />
 		</Router>
 		)}

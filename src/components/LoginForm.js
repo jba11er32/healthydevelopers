@@ -92,11 +92,10 @@ const LoginForm = () => {
 				/>
 
 				<Input
-					type={state.showPassword ? 'text' : 'password'}
+					type={confirmPassword.showPassword ? 'text' : 'password'}
 					name='password'
 					value={state.password}
 					onChange={handleChange}
-					onClick={handleClickShowPassword}
 					placeholder='Password'
 					endAdornment={
 					<InputAdornment position="end">
@@ -104,7 +103,7 @@ const LoginForm = () => {
 							onClick={handleClickShowPassword}
 							onMouseDown={handleMouseDownPassword}
 						>
-							{state.showPassword ? <Visibility /> : <VisibilityOff />}
+							{confirmPassword.showPassword ? <Visibility /> : <VisibilityOff />}
 							</IconButton>
 						</InputAdornment>
 					}
@@ -113,23 +112,21 @@ const LoginForm = () => {
 
 				<div>
 					<button type='submit'>
-						{/* <Link to='/myhome'> */}
 							<span>Log In</span>
-						{/* </Link> */}
 					</button>
 				</div>
 
 				<div className='divide-line'></div>
 
-				<div>
-					<p>Don't have an account?</p>
-					<Link to='/signup'>
-						<span>
-							Sign Up
-						</span>
-					</Link>
-				</div>
 			</form>
+			<div>
+				<p>Don't have an account?</p>
+				<Link to='/signup'>
+					<span>
+						Sign Up
+					</span>
+				</Link>
+			</div>
 		</div>
 	);
 };

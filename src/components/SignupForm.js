@@ -69,89 +69,91 @@ const SignupForm = () => {
 		})
 	}
 
-	return <div>
-		<form onSubmit={handleSubmit}>
-			<Input
-				type='text'
-				name='firstName'
-				value={state.firstName}
-				onChange={handleChange}
-				placeholder='First Name'
-				required
-			/>
-
-			<Input
-				type='text'
-				name='lastName'
-				value={state.lastName}
-				onChange={handleChange}
-				placeholder='Last Name'
-				required
-			/>
-
-			<Input
-				type='text'
-				name='email'
-				value={state.email}
-				onChange={handleChange}
-				placeholder='johndoe@someone.com'
-				required
-			/>
-
-			<Input
-				type={state.showPassword ? 'text' : 'password'}
-				name='password'
-				value={state.password}
-				onChange={handleChange}
-				onClick={handleClickShowPassword}
-				minLength={passwordMinLength}
-				placeholder='Password'
-				endAdornment={
-					<InputAdornment position="end">
-						<IconButton
-							onClick={handleClickShowPassword}
-							onMouseDown={handleMouseDownPassword}
-						>
-							{state.showPassword ? <Visibility /> : <VisibilityOff />}
-						</IconButton>
-					</InputAdornment>
-				}
-				required
-			/>
-
-			<Input
-				type={state.showConfirmPassword ? 'text' : 'password'}
-				name='confirmPassword'
-				value={confirmPassword.confirmPassword}
-				onChange={handleConfirmChange}
-				onClick={handleClickShowPassword}
-				placeholder='Confirm Password'
-				endAdornment={
-					<InputAdornment position="end">
-						<IconButton
-							onClick={handleClickShowPassword}
-							onMouseDown={handleMouseDownPassword}
-						>
-							{state.showPassword ? <Visibility /> : <VisibilityOff />}
-						</IconButton>
-					</InputAdornment>
-				}
-				required
-			/>
-
-			<div>
-					<button type='submit'>Sign Up</button>
-			</div>
-		</form>
+	return (
 		<div>
-			<p>Already have an account?</p>
-				<Link to='/'>
-					<span>
-						Log In
-					</span>
-				</Link>
+			<form onSubmit={handleSubmit}>
+				<Input
+					type='text'
+					name='firstName'
+					value={state.firstName}
+					onChange={handleChange}
+					placeholder='First Name'
+					required
+				/>
+
+				<Input
+					type='text'
+					name='lastName'
+					value={state.lastName}
+					onChange={handleChange}
+					placeholder='Last Name'
+					required
+				/>
+
+				<Input
+					type='text'
+					name='email'
+					value={state.email}
+					onChange={handleChange}
+					placeholder='johndoe@someone.com'
+					required
+				/>
+
+				<Input
+					type={state.showPassword ? 'text' : 'password'}
+					name='password'
+					value={state.password}
+					onChange={handleChange}
+					onClick={handleClickShowPassword}
+					minLength={passwordMinLength}
+					placeholder='Password'
+					endAdornment={
+						<InputAdornment position="end">
+							<IconButton
+								onClick={handleClickShowPassword}
+								onMouseDown={handleMouseDownPassword}
+							>
+								{state.showPassword ? <Visibility /> : <VisibilityOff />}
+							</IconButton>
+						</InputAdornment>
+					}
+					required
+				/>
+
+				<Input
+					type={state.showConfirmPassword ? 'text' : 'password'}
+					name='confirmPassword'
+					value={confirmPassword.confirmPassword}
+					onChange={handleConfirmChange}
+					onClick={handleClickShowPassword}
+					placeholder='Confirm Password'
+					endAdornment={
+						<InputAdornment position="end">
+							<IconButton
+								onClick={handleClickShowPassword}
+								onMouseDown={handleMouseDownPassword}
+							>
+								{state.showPassword ? <Visibility /> : <VisibilityOff />}
+							</IconButton>
+						</InputAdornment>
+					}
+					required
+				/>
+
+				<div>
+						<button type='submit'>Sign Up</button>
+				</div>
+			</form>
+			<div>
+				<p>Already have an account?</p>
+					<Link to='/'>
+						<span>
+							Log In
+						</span>
+					</Link>
+			</div>
 		</div>
-	</div>;
+	)
 };
 
 export default SignupForm;
