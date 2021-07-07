@@ -19,9 +19,7 @@ const HabitDisplay = () => {
         })
             .then(res => res.json())
             .then(habits => {
-                console.log(userHabits)
                 setUserHabits(habits)
-                console.log(userHabits)
             })
             .catch(err => {
                 console.log(err);
@@ -29,7 +27,15 @@ const HabitDisplay = () => {
     }, [])
 
     if (!userHabits) {
-        return <h1>LOADING...</h1>
+        return (
+            <div>
+                <h3>You have not updated your daily habits today.</h3>
+                <Link to='/create'>
+                    <button>Update now</button>
+                </Link>
+            </div>
+
+        )
     }
 
     // Return all habits by user
