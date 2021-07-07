@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Link } from 'react-router-dom';
 import HabitCard from './HabitCard';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import Dashboard from './Dashboard';
 
 
 const HabitDisplay = () => {
-
-    const [userHabits, setUserHabits] = useState([])
     const [currentDate, setCurrentDate] = useState(new Date())
+    const [userHabits, setUserHabits] = useState([])
 
     function handleChangeDate (currentDate) {
         setCurrentDate(currentDate)
@@ -37,14 +37,16 @@ const HabitDisplay = () => {
                 console.log(err);
             })
     }
-    // console.log(userHabits)
+    
+    console.log(userHabits)
     // If user has no post for that day, return button to create
     if (!userHabits.length) {
         return (
             <div>
+                <Dashboard />
                 <Calendar onChange={handleChangeDate} value={currentDate}/>
                 <h3>You have not updated your daily habits today.</h3>
-                <Link to='/today'>
+                <Link to='/update'>
                     <button>Update now</button>
                 </Link>
             </div>
@@ -55,12 +57,13 @@ const HabitDisplay = () => {
     // 
     return (
         <div>
+            <Dashboard />
             <Calendar onChange={handleChangeDate} value={currentDate}/>
             {
                 userHabits.map((habit) => {
                     return (
                         <Link key={habit._id} to={`/today/${habit._id}`}>
-                            <HabitCard habit={habit} />
+                            <HabitCard habit={habit}/>
                         </Link>
                     )
                 })

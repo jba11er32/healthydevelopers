@@ -3,11 +3,11 @@ import { Link, useHistory } from 'react-router-dom';
 import Logout from './Logout';
 
 const Dashboard = () => {
-	let history = useHistory();
+	// let history = useHistory();
 
-	function handleClick() {
-		history.push('/myprofile')
-	}
+	// function handleClick() {
+	// 	history.push('/myprofile')
+	// }
 
 	return (
 		<div>
@@ -15,7 +15,7 @@ const Dashboard = () => {
                 <h1>DevHealthyHabits</h1>
             </div>
 			<ul>
-				<li onClick={handleClick}>
+				<li>
 					<Link to='/myprofile'>home</Link>
 				</li>
 				<li>

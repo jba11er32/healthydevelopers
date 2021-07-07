@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Dashboard from './Dashboard';
 
-const UpdateForm = ({ dailyNumbers, setDailyNumbers }) => {
+const UpdateForm = ({ match, history }) => {
 	const dailyInput = {
 		water: '',
 		pushups: '',
@@ -9,7 +9,28 @@ const UpdateForm = ({ dailyNumbers, setDailyNumbers }) => {
 		squats: '',
 	};
 
+	const [habit, setHabit] = useState(null);
+
 	const [dailyData, setDailyData] = useState(dailyInput);
+
+
+	useEffect(() => {
+        const url = `https://healthydevelopers-jl.herokuapp.com/${match.params.id}`
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+				'Content-Type': 'application/json',
+            }
+        })
+            .then(res => res.json())
+            .then(res => {
+                setHabit(res)
+            })
+            .catch(err => {
+                console.error(err)
+            })
+    }, [])
 
 	const handleChange = (event) => {
 		setDailyData({ ...dailyData, [event.target.id]: event.target.value });
@@ -17,7 +38,7 @@ const UpdateForm = ({ dailyNumbers, setDailyNumbers }) => {
 
 	function handleSubmit(event) {
 		event.preventDefault();
-		const url = `https://healthydevelopers-jl.herokuapp.com/${}`;
+		const url = `https://healthydevelopers-jl.herokuapp.com/${habit._id}`;
 		fetch(url, {
 			method: 'PUT',
 			body: JSON.stringify(dailyData),
@@ -29,10 +50,15 @@ const UpdateForm = ({ dailyNumbers, setDailyNumbers }) => {
 			.then((res) => res.json())
 			.then((result) => {
 				console.log('Success:', result);
+				history.push(`/today/${match.params.id}`)
 			})
 			.catch((error) => {
 				console.error('Error:', error);
 			});
+	}
+
+	if(!habit) {
+		return <div>Loading...</div>
 	}
 
 	return (
@@ -76,7 +102,7 @@ const UpdateForm = ({ dailyNumbers, setDailyNumbers }) => {
 				/>
 
 				<br />
-				<button type='submit' value='submit' />
+				<button type='submit' value='submit'>Update</button>
 			</form>
 		</div>
 	);
