@@ -19,7 +19,7 @@ const Profile = () => {
                     <Route exact path='/myhome'>
                         <Home />
                     </Route >
-                    <Route exact path='/today'>
+                    <Route exact path='/today' component={Today}>
                         <Today />
                     </Route>
                     <Route exact path='/month'>
