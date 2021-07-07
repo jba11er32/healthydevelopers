@@ -59,8 +59,8 @@ const HabitDisplay = () => {
             {
                 userHabits.map((habit) => {
                     return (
-                        <Link to={`/today/${habit._id}`}>
-                            <HabitCard id={habit._id} habit={habit} />
+                        <Link key={habit._id} to={`/today/${habit._id}`}>
+                            <HabitCard habit={habit} />
                         </Link>
                     )
                 })
