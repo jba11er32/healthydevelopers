@@ -7,7 +7,7 @@ import 'react-calendar/dist/Calendar.css';
 
 const HabitDisplay = () => {
 
-    const [userHabits, setUserHabits] = useState()
+    const [userHabits, setUserHabits] = useState([])
     const [currentDate, setCurrentDate] = useState(new Date())
 
     function handleChangeDate (currentDate) {
@@ -44,7 +44,7 @@ const HabitDisplay = () => {
             <div>
                 <Calendar onChange={handleChangeDate} value={currentDate}/>
                 <h3>You have not updated your daily habits today.</h3>
-                <Link to='/create'>
+                <Link to='/today'>
                     <button>Update now</button>
                 </Link>
             </div>
