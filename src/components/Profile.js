@@ -15,18 +15,20 @@ const Profile = () => {
                 <Dashboard />
             </div>
             <div>
-                <Route exact path='/myhome'>
-                    <Home />
-                </Route >
-                <Route path='/today'>
-                    <Today />
-                </Route>
-                <Route path='/month'>
-                    <Month />
-                </Route>
-                <Route path='/about'>
-                    <About />
-                </Route>
+                <Switch>
+                    <Route exact path='/myhome'>
+                        <Home />
+                    </Route >
+                    <Route exact path='/today'>
+                        <Today />
+                    </Route>
+                    <Route exact path='/month'>
+                        <Month />
+                    </Route>
+                    <Route exact path='/about'>
+                        <About />
+                    </Route>
+                </Switch>
                 <HabitDisplay />
             </div>
         </div>
