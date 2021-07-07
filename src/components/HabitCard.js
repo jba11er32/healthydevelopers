@@ -5,7 +5,7 @@ const HabitCard = ({ habit }) => {
 
     return (
         <div>
-            <h2>{date.toLocaleString('default', {month: 'long'})}</h2>
+            <h2>{date.toLocaleString('default', { weekday: 'long', month: 'long'})}</h2>
             <ul>
                 <li>Water<hr />{habit.water}</li>
                 <li>Push Ups<hr />{habit.pushups}</li>
