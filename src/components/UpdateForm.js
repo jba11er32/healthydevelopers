@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Dashboard from './Dashboard';
 
-const UpdateForm = () => {
+const UpdateForm = ({ dailyNumbers, setDailyNumbers }) => {
 	const dailyInput = {
 		water: '',
 		pushups: '',
@@ -26,7 +26,7 @@ const UpdateForm = () => {
 				'Content-Type': 'application/json',
 			},
 		})
-			.then((response) => response.json())
+			.then((res) => res.json())
 			.then((result) => {
 				console.log('Success:', result);
 			})
