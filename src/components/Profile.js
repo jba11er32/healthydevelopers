@@ -11,9 +11,9 @@ const Profile = () => {
                 <Dashboard />
                 <h2>Welcome {localStorage.name}!</h2>
             </div>
-            {/* <div>
+            <div>
                 <HabitDisplay/>
-            </div> */}
+            </div>
         </div>
     );
 };

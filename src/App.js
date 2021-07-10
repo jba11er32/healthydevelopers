@@ -11,6 +11,7 @@ import About from './components/About';
 import UpdateForm from './components/UpdateForm';
 import HabitDisplay from './components/HabitDisplay';
 import HabitPage from './components/HabitPage';
+import Today from './components/Today';
 
 
 
@@ -34,8 +35,8 @@ function App() {
 				<Route exact path='/:id/update' component={UpdateForm} />
 				<Route exact path='/' component={Object.keys(user).length ? Profile : Main} />
                 <Route exact path='/myprofile' component={Profile} />
-                <Route exact path='/update' component={HabitForm}/>
-				<Route exact path='/today' component={HabitDisplay} />
+                <Route exact path='/create' component={HabitForm}/>
+				<Route exact path='/today' component={Today} />
                 <Route exact path='/month' component={Month} />
                 <Route exact path='/about' component={About} />
 			</Switch>

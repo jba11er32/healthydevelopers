@@ -43,11 +43,10 @@ const HabitDisplay = () => {
     if (!userHabits.length) {
         return (
             <div>
-                <Dashboard />
                 <Calendar onChange={handleChangeDate} value={currentDate}/>
                 <h3>You have not updated your daily habits today.</h3>
-                <Link to='/update'>
-                    <button>Update now</button>
+                <Link to='/create'>
+                    <button>Create now</button>
                 </Link>
             </div>
 
@@ -57,7 +56,6 @@ const HabitDisplay = () => {
     // 
     return (
         <div>
-            <Dashboard />
             <Calendar onChange={handleChangeDate} value={currentDate}/>
             {
                 userHabits.map((habit) => {

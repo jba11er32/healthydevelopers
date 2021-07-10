@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const HabitForm = () => {
 	const dailyInput = {
@@ -15,9 +15,6 @@ const HabitForm = () => {
 		setDailyData({ ...dailyData, [event.target.id]: event.target.value });
 	};
 
-	const navigateProfile = () => {
-		useHistory.push('/myprofile')
-	}
 
 	function handleSubmit(event) {
 		event.preventDefault();
@@ -79,7 +76,9 @@ const HabitForm = () => {
 				/>
 
 				<br />
-				<button type='submit' value='submit' onClick={navigateProfile}>Submit</button>
+				<Link to='/today'>
+					<button	button type='submit' value='submit' >Submit</button>
+				</Link>
 			</form>
 		</div>
 	);
