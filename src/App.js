@@ -17,7 +17,6 @@ import HabitPage from './components/HabitPage';
 function App() {
 	// grabs user from rootReducer
 	const user = useSelector(state => state.user)
-	const [habit, setHabit] = useState()
 
 	if (!localStorage.token) {
 		return (
@@ -34,21 +33,11 @@ function App() {
 				<Route exact path='/today/:id' component={HabitPage}/>
 				<Route exact path='/:id/update' component={UpdateForm} />
 				<Route exact path='/' component={Object.keys(user).length ? Profile : Main} />
-                <Route exact path='/myprofile'>
-                    <Profile />
-                </Route>
-                <Route exact path='/update'>
-                    <HabitForm habit={habit} setHabit={setHabit}/>
-                </Route>
-				<Route exact path='/today'>
-					<HabitDisplay />
-				</Route>
-                <Route exact path='/month'>
-                    <Month habit={habit} setHabit={setHabit}/>
-                </Route>
-                <Route exact path='/about'>
-                    <About />
-                </Route>
+                <Route exact path='/myprofile' component={Profile} />
+                <Route exact path='/update' component={HabitForm} />
+				<Route exact path='/today' component={HabitDisplay}/>
+                <Route exact path='/month' component={Month}/>
+                <Route exact path='/about' component={About} />
 			</Switch>
 		</Router>
 	)
