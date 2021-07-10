@@ -34,9 +34,9 @@ function App() {
 				<Route exact path='/:id/update' component={UpdateForm} />
 				<Route exact path='/' component={Object.keys(user).length ? Profile : Main} />
                 <Route exact path='/myprofile' component={Profile} />
-                <Route exact path='/update' component={HabitForm} />
-				<Route exact path='/today' component={HabitDisplay}/>
-                <Route exact path='/month' component={Month}/>
+                <Route exact path='/update' component={HabitForm}/>
+				<Route exact path='/today' component={HabitDisplay} />
+                <Route exact path='/month' component={Month} />
                 <Route exact path='/about' component={About} />
 			</Switch>
 		</Router>
